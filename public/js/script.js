@@ -20,7 +20,10 @@ cidadeBtn.addEventListener('click', async function getTempo() {
                         <h2>Clima em ${data.city}</h2>
                         <p>Temperatura: ${data.temperature}°C</p>
                         <p>Descrição: ${data.description}</p>
-                        <p>Umidade: ${data.humidity}%</p>`
+                        <p>Umidade: ${data.humidity}%</p>
+                        <p>País: ${data.country}</p>
+                        <p>País: ${data.sunset}%</p>
+                        `
         }
     } catch (erro) {
         tempoRes.innerHTML = '<p>Erro ao buscar os dados</p>'

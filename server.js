@@ -15,13 +15,21 @@ app.get('/tempo', async (req, res) => {
     try {
         const response = await axios.get(apiUrl)
         const data = response.data
+        
+        const sunset = new Date(data.sys.sunset*1000)
+        const sunsetTime = sunset.toLocaleTimeString()
 
         res.json({
             city: data.name,
             temperature: data.main.temp,
             description: data.weather[0].description,
-            humidity: data.main.humidity
+            humidity: data.main.humidity,
+            country: data.sys.country,
+            sunset: sunsetTime
         })
+
+    
+
     } catch (erro) {
         res.status(404).json({ erro: 'Cidade não existente' })
     }
